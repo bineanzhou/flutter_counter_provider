@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_counter_provider/counter_model.dart';
 import 'package:provider/provider.dart';
 
+import 'first_screen.dart';
+
 void main() {
   final counter = CounterModel();
   final textSize = 48;
