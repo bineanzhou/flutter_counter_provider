@@ -6,7 +6,6 @@ import 'counter_model.dart';
 class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('second screen rebuild');
     return Scaffold(
       appBar: AppBar(
         title: Text('Second Page'),

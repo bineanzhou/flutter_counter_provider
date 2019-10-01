@@ -10,12 +10,12 @@ void main() {
   final textSize = 48;
 
   runApp(
-    Provider<int>.value(
-      value: textSize,
-      child: ChangeNotifierProvider<CounterModel>.value(
-        value: counter,
-        child: MyApp(),
-      ),
+    MultiProvider(
+      providers: [
+        Provider.value(value: textSize),
+        ChangeNotifierProvider.value(value: counter)
+      ],
+      child: MyApp(),
     ),
   );
 }

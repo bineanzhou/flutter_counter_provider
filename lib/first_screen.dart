@@ -7,10 +7,6 @@ import 'second_page.dart';
 class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('first screen rebuild');
-    final _counter = Provider.of<CounterModel>(context);
-    final textSize = Provider.of<int>(context).toDouble();
-
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('FirstPage')),
@@ -19,7 +15,7 @@ class FirstScreen extends StatelessWidget {
         builder: (context, CounterModel counter, int textSize, _) {
           return Center(
             child: Text(
-              'Value: ${_counter.value}',
+              'Value: ${counter.value}',
               style: TextStyle(fontSize: textSize.toDouble()),
             ),
           );
