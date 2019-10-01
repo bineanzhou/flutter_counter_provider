@@ -15,11 +15,15 @@ class FirstScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(child: Text('FirstPage')),
       ),
-      body: Center(
-        child: Text(
-          'Value: ${_counter.value}',
-          style: TextStyle(fontSize: textSize),
-        ),
+      body: Consumer2<CounterModel, int>(
+        builder: (context, CounterModel counter, int textSize, _) {
+          return Center(
+            child: Text(
+              'Value: ${_counter.value}',
+              style: TextStyle(fontSize: textSize.toDouble()),
+            ),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context)
