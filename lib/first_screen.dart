@@ -7,9 +7,12 @@ import 'second_page.dart';
 class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+//    final _counter = Provider.of<CounterModel>(context);
+//    final textSize = Provider.of<int>(context).toDouble();
+
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('FirstPage')),
+        title: Center(child: Text('First Page')),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.arrow_forward),
@@ -25,16 +28,27 @@ class FirstScreen extends StatelessWidget {
           return Center(
             child: Text(
               'Value: ${counter.value}',
-              style: TextStyle(fontSize: textSize.toDouble()),
+              style: TextStyle(
+                fontSize: textSize.toDouble(),
+              ),
             ),
           );
         },
       ),
+
+      /*  body: Center(
+        child: Text(
+          'Value: ${_counter.value}',
+          style: TextStyle(fontSize: textSize),
+        ),
+      ),*/
+
       floatingActionButton: Consumer<CounterModel>(
         builder: (context, CounterModel counter, child) => FloatingActionButton(
               onPressed: () => counter.increment(),
-              child: Icon(Icons.add),
+              child: child,
             ),
+        child: Icon(Icons.add),
       ),
     );
   }

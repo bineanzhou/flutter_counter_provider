@@ -18,6 +18,16 @@ void main() {
       child: MyApp(),
     ),
   );
+
+/*  runApp(
+    Provider<int>.value(
+      value: textSize,
+      child: ChangeNotifierProvider.value(
+        value: counter,
+        child: MyApp(),
+      ),
+    ),
+  );*/
 }
 
 class MyApp extends StatelessWidget {
