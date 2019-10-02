@@ -10,6 +10,15 @@ class FirstScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('FirstPage')),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.arrow_forward),
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => SecondPage()));
+            },
+          ),
+        ],
       ),
       body: Consumer2<CounterModel, int>(
         builder: (context, CounterModel counter, int textSize, _) {
@@ -21,10 +30,11 @@ class FirstScreen extends StatelessWidget {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => SecondPage())),
-        child: Icon(Icons.navigate_next),
+      floatingActionButton: Consumer<CounterModel>(
+        builder: (context, CounterModel counter, child) => FloatingActionButton(
+              onPressed: () => counter.increment(),
+              child: Icon(Icons.add),
+            ),
       ),
     );
   }
